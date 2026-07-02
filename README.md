@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎓 Student Management — Frontend
 
-## Getting Started
+A Next.js frontend for the Student Management Portal with registration, login, and a protected home page.
 
-First, run the development server:
+## 🚀 Features
+- User Registration form with validation
+- User Login with JWT authentication
+- Protected Home page displaying user details
+- Logout functionality
+- Responsive UI with Tailwind CSS
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🛠️ Tech Stack
+| Technology | Purpose |
+|-----------|---------|
+| Next.js 14 | React framework (App Router) |
+| Tailwind CSS | Styling |
+| localStorage | Token storage |
+
+## 📁 Folder Structure
+```
+student_management/
+├── app/
+│   ├── register/
+│   │   └── page.jsx    # Registration form
+│   ├── login/
+│   │   └── page.jsx    # Login form
+│   └── home/
+│       └── page.jsx    # Protected home page
+└── package.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ Setup & Installation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Clone the repo
+```bash
+git clone https://github.com/Hariram26/student_management.git
+cd student_management
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies
+```bash
+npm install
+```
 
-## Learn More
+3. Make sure backend is running on `http://localhost:3000`
 
-To learn more about Next.js, take a look at the following resources:
+4. Start the development server
+```bash
+npm run dev
+```
+App runs on `http://localhost:3001`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📸 Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Page | Route | Description |
+|------|-------|-------------|
+| Register | `/register` | Create a new account |
+| Login | `/login` | Login with email & password |
+| Home | `/home` | Protected page with user details |
 
-## Deploy on Vercel
+## 🔗 Backend Repo
+[student_register](https://github.com/Hariram26/student_register) — Express + MongoDB backend
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👨‍💻 Author
+**Hariram26** — [GitHub](https://github.com/Hariram26)
