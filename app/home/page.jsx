@@ -7,7 +7,7 @@ export default function HomePage() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const storedUser  = localStorage.getItem('user');
+    const storedUser = localStorage.getItem('user');
     const storedToken = localStorage.getItem('token');
 
     // not logged in → redirect to login
@@ -35,6 +35,13 @@ export default function HomePage() {
           Welcome, {user.name}! 👋
         </h2>
         <p className="text-gray-500 mb-6">{user.email}</p>
+
+        <button
+          onClick={() => router.push('/students')}
+          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg mr-3"
+        >
+          View Students
+        </button>
 
         <button
           onClick={handleLogout}

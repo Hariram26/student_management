@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import API_URL from '@/lib/api';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -10,7 +11,7 @@ export default function LoginPage() {
     password: ''
   });
 
-  const [error,   setError]   = useState('');
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   function handleChange(e) {
@@ -29,7 +30,7 @@ export default function LoginPage() {
     }
 
     try {
-      const res = await fetch('http://localhost:3000/api/login', {
+      const res = await fetch(`${API_URL}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -44,7 +45,7 @@ export default function LoginPage() {
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
 
-        router.push('/home');   // navigate to home page
+        router.push('/students');   // navigate to home page
       }
 
     } catch (err) {
