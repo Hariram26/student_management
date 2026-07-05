@@ -1,12 +1,15 @@
 # 🎓 Student Management — Frontend
 
-A Next.js frontend for the Student Management Portal with registration, login, and a protected home page.
+A Next.js frontend for the Student Management Portal with user authentication and complete student record management.
 
 ## 🚀 Features
-- User Registration form with validation
+- User Registration with form validation
 - User Login with JWT authentication
-- Protected Home page displaying user details
-- Logout functionality
+- Protected routes — redirects to login if not authenticated
+- View all student records in a table
+- Add new student with a form
+- Edit existing student details
+- Delete student with confirmation
 - Responsive UI with Tailwind CSS
 
 ## 🛠️ Tech Stack
@@ -14,18 +17,27 @@ A Next.js frontend for the Student Management Portal with registration, login, a
 |-----------|---------|
 | Next.js 14 | React framework (App Router) |
 | Tailwind CSS | Styling |
-| localStorage | Token storage |
+| localStorage | Token & user storage |
 
 ## 📁 Folder Structure
 ```
 student_management/
 ├── app/
 │   ├── register/
-│   │   └── page.jsx    # Registration form
+│   │   └── page.jsx         # Register form
 │   ├── login/
-│   │   └── page.jsx    # Login form
-│   └── home/
-│       └── page.jsx    # Protected home page
+│   │   └── page.jsx         # Login form
+│   ├── home/
+│   │   └── page.jsx         # Home page with user details
+│   └── students/
+│       ├── page.jsx         # View all students
+│       ├── add/
+│       │   └── page.jsx     # Add new student
+│       └── edit/
+│           └── [id]/
+│               └── page.jsx # Edit student
+├── lib/
+│   └── api.js               # Base API URL config
 └── package.json
 ```
 
@@ -42,21 +54,30 @@ cd student_management
 npm install
 ```
 
-3. Make sure backend is running on `http://localhost:3000`
+3. Make sure backend is running on `http://localhost:3001`
 
 4. Start the development server
 ```bash
 npm run dev
 ```
-App runs on `http://localhost:3001`
+App runs on `http://localhost:3000`
 
-## 📸 Pages
+## 📸 Pages & Routes
 
-| Page | Route | Description |
-|------|-------|-------------|
-| Register | `/register` | Create a new account |
-| Login | `/login` | Login with email & password |
-| Home | `/home` | Protected page with user details |
+| Page | Route | Protected |
+|------|-------|-----------|
+| Register | `/register` | ❌ Public |
+| Login | `/login` | ❌ Public |
+| Home | `/home` | ✅ Login required |
+| All Students | `/students` | ✅ Login required |
+| Add Student | `/students/add` | ✅ Login required |
+| Edit Student | `/students/edit/:id` | ✅ Login required |
+
+## 🔄 App Flow
+```
+/register → /login → /students → /students/add
+                              → /students/edit/:id
+```
 
 ## 🔗 Backend Repo
 [student_register](https://github.com/Hariram26/student_register) — Express + MongoDB backend
